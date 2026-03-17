@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Thaliss0n™ – Portal Oficial de Dados & Dreams</title>
+<style>
+  /* paleta core-fusion: verde-golpe + roxo-mistério + amarelo-apanhado */
+  :root{
+    --verdin: #00FF7F;
+    --purp: #6A0DAD;
+    --amarelão: #FFD700;
+    --bg0: #111;
+  }
+  body{
+    margin:0;
+    background:#000 repeating-linear-gradient(
+      45deg,
+      #000 0,
+      #000 2px,
+      #010 2px,
+      #010 4px
+    );
+    color:#0f0;
+    font-family:"Courier New", monospace;
+    overflow-x:hidden;
+  }
+
+  /* header piscante */
+  header{
+    text-align:center;
+    background:var(--purp);
+    padding:1rem;
+    animation:pisca . 0.8s infinite;
+  }
+  @keyframes pisca{
+    0%,49%{opacity:1;}
+    50%,100%{opacity:0.2;}
+  }
+  h1{
+    margin:0;
+    font-size:3.5rem;
+    letter-spacing:6px;
+    text-shadow:0 0 10px var(--amarelão);
+  }
+
+  /* contador fake de "vítimas" */
+  #cont{
+    font-size:2rem;
+    color:var(--amarelão);
+    text-align:center;
+    margin:1rem 0;
+  }
+
+  /* formulário central */
+  #painel{
+    width:90%;
+    max-width:400px;
+    margin:2rem auto;
+    border:3px dashed var(--verdin);
+    border-radius:15px;
+    padding:2rem;
+    background:rgba(0,0,0,.7);
+    box-shadow:0 0 30px var(--purp);
+    position:relative;
+  }
+  #painel::before{
+content:"🚨 PROMOÇÃO RELÂMPAGO: CADASTRE-SE E GANHE 50% DO SEU PRÓPRIO DINHEIRO DE VOLTA! 🚨";
+    position:absolute;
+    top:-30px;
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--amarelão);
+    color:#000;
+    padding:5px 10px;
+    font-weight:bold;
+    border-radius:4px;
+  }
+
+  label{
+    display:block;
+    margin-top:1rem;
+    color:var(--verdin);
+  }
+  input{
+    width:100%;
+    padding:.6rem;
+    margin-top:.4rem;
+    border:none;
+    border-bottom:2px solid var(--purp);
+    background:transparent;
+    color:#0f0;
+    font-size:1.1rem;
+  }
+  input::placeholder{color:#555;}
+
+  /* botão meme */
+  button{
+    width:100%;
+    margin-top:2rem;
+    padding:1rem;
+    font-size:1.4rem;
+    background:linear-gradient(45deg, var(--verdin), var(--purp));
+    border:none;
+    border-radius:8px;
+    color:#fff;
+    cursor:pointer;
+    transition:all .3s;
+  }
+  button:hover{
+    transform:scale(1.1) rotate(-2deg);
+    box-shadow:0 0 25px var(--amarelão);
+  }
+
+  /* footer sarcástico */
+  footer{
+    text-align:center;
+    padding:2rem;
+    font-size:.85rem;
+    color:#666;
+  }
+  footer a{color:#0f0;}
+
+  /* easter-egg rolando */
+  #rol{
+    position:fixed;
+    bottom:10px;
+    left:-300px;
+    white-space:nowrap;
+    background:var(--amarelão);
+    color:#000;
+    padding:8px 20px;
+    border-radius:20px;
+    font-weight:bold;
+    animation:rola 10s linear infinite;
+  }
+  @keyframes rola{
+    to{left:105%;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BEM-VINDO AO Thaliss0n™</h1>
+  <p>O <strong>único</strong> portal que transforma seus dados em risadas coletivas.</p>
+</header>
+
+<div id="cont">Pessoas já "thalissonadas": <span id="num">1337</span></div>
+
+<form id="painel" onsubmit="return gulpe()">
+  <label>Nome completo (igualzinho no CPF, viu?):
+  <input placeholder="Ex: Thalisson da Silva Sauro"></label>
+
+  <label>CPF (sem frescura, só números):
+  <input placeholder="00011122233"></label>
+
+  <label>Senha do banco (confia, é criptografada com base64 😉):
+  <input type="password" placeholder="mínimo 1 caractere"></label>
+
+  <label>Chave PIX (pra gente te reembolsar, claro):
+  <input placeholder="e-mail, telefone ou CPF"></label>
+
+  <button type="submit">QUERO MEUS 50% DE VOLTA!</button>
+</form>
+
+<footer>
+  ©2026 Thaliss0n Industries | <a href="#">Clique aqui para reclamar (não funciona)</a><br>
+  Dúvidas? Ligue 4002-8922 e peça pelo "Trolar".
+</footer>
+
+<div id="rol">🤑 Thalisson passou aqui e disse que seu CPF é arte moderna 🤑</div>
+
+<script>
+  // contador semente fake
+  let n=1337;
+  setInterval(()=>{
+    n+=Math.floor(Math.random()*7);
+    document.getElementById('num').textContent=n;
+  },1500);
+
+  function gulpe(){
+    alert("✅ Dados enviados com sucesso!\nAguarde 2-3Meses úteis para nada acontecer. Obrigado por trolar o Thalisson conosco! 🎉");
+    return false; // impede reload, mantém a graça
+  }
+</script>
+
+</body>
+</html>
